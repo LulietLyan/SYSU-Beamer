@@ -1,0 +1,7 @@
+\frametitle{Look}
+\begin{itemize}
+        \item To change the colour of the title dash, give one of the class options \texttt{cyandash} (default), \texttt{greendash}, \texttt{magentadash}, \texttt{yellowdash}, or \texttt{nodash}.
+        \item To change between the light and dark themes, give the class options \texttt{light} (default) or \texttt{dark}. It is not possible to switch theme for one slide because of the design of Beamer---and it's probably a good thing.
+        \item To insert a final slide, use \verb|\backmatter|.
+        \item The aspect ratio defaults to 16:9, but you can change it to 4:3 for old projectors by passing the class option \texttt{aspectratio=43}; any other values accepted by Beamer are also possible.
+        \end{itemize}
