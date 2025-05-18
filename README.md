@@ -42,75 +42,130 @@
 
 # 📕 目录
 - [📕 目录](#-目录)
-- [🤔 项目背景](#-项目背景)
-  - [设计理念](#设计理念)
-- [😋 快速上手指南](#-快速上手指南)
-  - [克隆仓库](#克隆仓库)
-  - [开始项目](#开始项目)
-- [❓ 待办事项](#-待办事项)
+- [✨ 功能特性](#-功能特性)
+- [🚀 快速开始](#-快速开始)
+  - [环境要求](#环境要求)
+  - [安装指南](#安装指南)
+  - [基础使用](#基础使用)
+- [🎨 自定义配置](#-自定义配置)
+  - [主题切换](#主题切换)
+  - [字体配置](#字体配置)
+- [🌐 多语言支持](#-多语言支持)
+- [📊 项目结构](#-项目结构)
 - [🤝 代码贡献](#-代码贡献)
   - [代码贡献人员](#代码贡献人员)
 - [❓ 联系作者](#-联系作者)
 - [❗ 授权说明](#-授权说明)
 
-# 🤔 项目背景
+# ✨ 功能特性
 
-**SYSU-Beamer** 致力于构建一个统一而美观的 README 模板，让您从此无需重复造轮子——这正是本项目的核心价值。
-
-<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
-
-## 设计理念
-
-- 开发者精力应聚焦于创造价值，而非撰写文档
-- 避免从零开始编写 README 的重复劳动
-- 将 DRY（Don't Repeat Yourself）原则延伸至工作全流程 😊
-
-我们深知单一模板难以满足所有场景需求（不同项目的文档要求千差万别）。近期将持续完善模板体系，您也可以通过以下方式参与共建：
-- **Fork** 仓库并提交拉取请求
-- 创建改进提案的讨论议题
-
-特别鸣谢所有为模板生态作出贡献的开发者！
+|特性|描述|
+|:-:|:-:|
+|🎯 官方视觉规范|严格遵循中山大学VI系统，校徽绿（#006C35）配色方案|
+|📐 响应式布局|智能分栏系统适配不同演示场景|
+|🌓 双主题模式|Light/Dark主题一键切换|
+|🧮 数学公式支持|原生LaTeX数学环境+AMS宏包扩展|
+|🖼️ 矢量图形集成|内置SYSU校徽、标志性建筑等矢量素材|
+|📈 数据可视化|预设科研数据图表模板（Matplotlib/TikZ）|
+|🎭 渐进式呈现|支持Beamer \pause命令与逐项高亮|
+|🛠️ 模块化设计|按章节拆分文件，便于大型演示文稿管理|
 
 <p align="right">(<a href="#readme-top">返回顶部</a>)</p>
 
-# 😋 快速上手指南
+# 🚀 快速开始
 
-以下演示如何快速完成项目本地化部署，助您轻松使用 **README\.md** 模板。
+## 环境要求
 
-## 克隆仓库
+- **TeX 发行版**: TeX Live 2023+ 或 MiKTeX
+- **编译引擎**: XeLaTeX（推荐） / LuaLaTeX
+- **中文字体**: 思源宋体/霞鹜文楷
 
-作者已经将本项目设置为模板，每次建立新的仓库时可以指定使用本模板，无需手动复制粘贴。貌似被设置为模板的项目在被 **Fork** 时也是模板的状态，因此在您 Fork 后可以轻松地使用本模板。
+## 安装指南
 
-点击 [Fork](https://github.com/LulietLyan/SYSU-Beamer/fork) 按钮将项目拉取至您的仓库。
+```bash
+# 克隆仓库
+git clone https://github.com/SYSU-LaTeX/SYSU-Beamer.git
+cd SYSU-Beamer
 
-## 开始项目
+# 安装依赖（Ubuntu示例）
+sudo apt-get install texlive-full fonts-lxgw-wenkai
+```
 
-1. **克隆到本地**
-  ```bash
-    git clone https://github.com/你的用户名/SYSU-Beamer.git
-    cd SYSU-Beamer
-  ```
-2. **修改模板内容**
-  编辑 **README\.md** 文件，按照您的项目需求调整内容。
-3. **提交更改**
-  ```bash
-    git add .
-    git commit -m "docs: 更新README内容"
-    git push origin main
-  ```
-4. **在项目中使用**
-  直接作为项目主文档
-  或复制模板内容到其他项目的 **README\.md**
+## 基础使用
+```bash
+\documentclass[SYSU,en]{collegeBeamer} % en为英文模式
+\usepackage{xeCJK}
+\setCJKmainfont{LXGW WenKai} % 设置中文字体
+
+\begin{document}
+\maketitle % 生成标题页
+\begin{frame}{演示帧标题}
+    \begin{itemize}
+        \item 使用itemize环境创建列表
+        \item 数学公式示例: $\nabla \cdot \mathbf{D} = \rho_{\text{free}}$
+    \end{itemize}
+\end{document}
+```
+
+编译命令：
+```bash
+xelatex main.tex
+```
 
 <p align="right">(<a href="#readme-top">返回顶部</a>)</p>
 
-# ❓ 待办事项
+# 🎨 自定义配置
 
-- [√] 中文版本
-- [ ] English Version
-- [ ] 能否实现工具化
+## 主题切换
+
+```bash
+% 类选项配置
+\documentclass[SYSU,       % 启用SYSU主题
+               dark,       % 深色模式 
+               aspectratio=169, % 16:9宽屏（默认）
+               greenline   % 标题装饰线颜色
+              ]{collegeBeamer}
+```
+
+## 字体配置
+
+```bash
+% 英文字体设置
+\setmainfont{Helvetica Neue}
+\setsansfont{Fira Sans}
+
+% 中日韩字体设置
+\setCJKmainfont{Source Han Serif SC}
+\setCJKsansfont{Source Han Sans SC}
+```
 
 <p align="right">(<a href="#readme-top">返回顶部</a>)</p>
+
+# 🌐 多语言支持
+
+|语言|状态|示例代码|
+|:-:|:-:|:-:|
+|简体中文|✅|\documentclass[SYSU,zh]{...|
+|英文|✅|\documentclass[SYSU,en]{...|
+|日文|🚧|\usepackage{zxjatype}|
+|韩文|🚧|\usepackage{nanumtype}|
+
+<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
+
+# 📊 项目结构
+
+```bash
+SYSU-Beamer/
+├── image/               # 文档资源
+├── src/                 # 源代码
+│   ├── SYSU/            # 主题文件
+│   │   ├── color-logo.pdf
+│   │   └── ...          # 图形资源
+│   └── examples/        # 使用示例
+├── SYSU-Beamer.tex      # 入口文件
+├── LICENSE              # MIT 许可证
+└── README.md            # 本文档
+```
 
 # 🤝 代码贡献
 
