@@ -567,8 +567,8 @@
 % CUI (see DoDI 5200.48, p. 16)
 \newif\ifControlled\Controlledfalse
 \def\@cuiBlock{
-    Controlled By: AETC \\
-    Controlled By: AFIT/<school> \\
+    Controlled By: LulietLyan \\
+    Controlled By: SYSU/<school> \\
     CUI Category(ies): <category> \\
     Distribution: <DistB, ..., DistF command> \\
     POC: <name>, <phone>}
@@ -582,9 +582,9 @@
 
 % Contact info
 \def\@contactinfo{%
-    Air Force Institute of Technology \\
-    2950 Hobson Way \\
-    Wright Patterson AFB, Ohio 45433}
+    Sun Yat-sen University \\
+    No. 135, Xingang West Road, \\
+    Haizhu District, Guangzhou, Guangdong Province, China}
 \newcommand{\contact}[1]{\def\@contactinfo{{#1}}}
 
 % Copyright (e.g., \copyrighted[additional]{year}{author}). Note that the
@@ -605,16 +605,12 @@
 
 % Disclaimer statement
 \def\@disclaimerstatement{
-    \\[2ex] The views expressed in this article are those of the author and do
-    not necessarily reflect the official policy or position of the United States
-    government, Department of Defense, United States Air Force, or Air
-    University.}
+    \\[2ex] The opinions and conclusions expressed in this article are solely those of the author and do not necessarily represent the official views or policies of Sun Yat-sen University or its affiliated entities.}
 \newcommand{\disclaimer}[1]{\def\@disclaimerstatement{\par{#1}}}
 
-% AFIT motto
-\def\@afitmotto{
-    \\[2ex] \itshape{The AFIT of today is the Air and \\
-    Space Force of Tomorrow.}}
+% SYSU motto
+\def\@sysumotto{
+    \\[2ex] \itshape{Be extensively learned, inquire thoroughly, think carefully, distinguish clearly, and practice earnestly..}}
 
 % Custom logo
 \newif\ifextralogo\extralogofalse
@@ -666,8 +662,8 @@
 
 % TikZ predefined drawings
 \tikzset{
-    afitcrest/.pic={ \node at (0.58, 0.62) {\coverlogo}; },
-    afitlogo/.pic={ \node at (0.15, 0) {\headerlogo}; },
+    sysucrest/.pic={ \node at (0.58, 0.62) {\coverlogo}; },
+    sysulogo/.pic={ \node at (0.15, 0) {\headerlogo}; },
     titlepage/.pic={
         % Background
         \fill[color=light]
@@ -681,7 +677,7 @@
             (-\@xw,{\insetCovDnC-\@yh}) -- (-\@xw,\@yh);
         % Logos
         \path ({\@xw-0.5\insetCovUpA},{\@yh-0.5\insetCovUpA})
-            pic[scale=1.732]{afitcrest};
+            pic[scale=1.732]{sysucrest};
         \ifextralogo
             \node at ({\@xw-4.25cm},{\@yh-4.25cm}) {\usebox{\@extralogobox}};
         \fi
@@ -768,7 +764,7 @@
         % Logo
         \path ({0.5\insetSecTopA+0.1cm-\@xw},
             {\@yh-0.5\secStripHeight-0.1cm})
-            pic[color=dark]{afitlogo};
+            pic[color=dark]{sysulogo};
         % Title
         \node[right, inner sep=0, white, text depth=0]
             at ({\insetSecBotC+\whitewidth-\@xw},
@@ -795,7 +791,7 @@
         \path (0,0) pic{fullColorBkgnd};
         % Logo
         \path (-0.5\@xw,0)
-            pic[scale=2, dark] {afitcrest};
+            pic[scale=2, dark] {sysucrest};
         % Text
         \node[right, inner sep=0, dark] at (0,0)
             {\parbox{0.77\@xw}{%
@@ -803,7 +799,7 @@
                 \@contactinfo
                 \@copyrightstatement
                 \@disclaimerstatement
-                \@afitmotto}};
+                \@sysumotto}};
         % Classification
         \ifControlled
             \node[inner sep=0, text depth=0, dark]
