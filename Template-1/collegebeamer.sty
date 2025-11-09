@@ -65,6 +65,7 @@
 
 \setbeamertemplate{headline}{
     \hspace{0.06\textwidth}
+    \vspace{-0.02\textwidth}
     \raisebox{-16mm}{
         \pgfuseimage{\@makelogo}
     }
@@ -232,11 +233,6 @@
         \vskip5pt{\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\
         \vskip5pt{\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
     \end{beamercolorbox}
-    \begin{tikzpicture}[remember picture, overlay]
-                \node[anchor=south east] at (current page.south east) {
-                    \pgfuseimage{nsccgzlogo}
-                };
-    \end{tikzpicture}
 }
 
 \renewcommand{\maketitle}{
@@ -256,15 +252,11 @@
     \begingroup
         \setbeamertemplate{footline}{}
         \themecolor{colorbg}
-        
+        \setbeamercolor{background canvas}{bg=maincolor}
         \begin{frame}{}
             \centering
-            \begin{minipage}{\textwidth}
-                \usebeamercolor[fg]{normal text}
-                \centering
-                \Huge $$ Q \& A$$
-                \Large \qaStr
-            \end{minipage}
+            \vspace{0.18\textheight}
+            \usebeamercolor[fg]{normal text}{\Huge THANKS}
         \end{frame}
     \endgroup
 }
